@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poppins:wght@200;300;400;500;600&display=swap');
+
+:root {
+    --width-player: 40rem;
+    --height-player: 60rem;
+    --height-dashboard: 35rem;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    display: flex;
+    background: linear-gradient(45deg, rgb(57, 145, 216), rgb(209, 53, 53));
+    height: 100vh;
+}
+
+.player {
+    margin: auto;
+    width: var(--width-player);
+    height: var(--height-player);
+    border-radius: 1.5rem;
+    background-color: rgb(224, 222, 222);
+    overflow: hidden;
+}
+
+i.icon-pause {
+    display: none;
+}
+
+.player.playing .icon-play {
+    display: none;
+}
+
+.player.playing .icon-pause {
+    display: block;
+}
+
+.dashboard {
+    text-align: center;
+    padding: 1.2rem;
+    background-color: #fff;
+    width: 100%;
+    position: relative;
+}
+
+.dashboard header h4 {
+    font-size: 1.4rem;
+    color: rgb(235, 53, 114);
+}
+
+.dashboard header .song-name {
+    font-size: 2rem;
+}
+
+.cd {
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    border-radius: 50%;
+    margin: 1.5rem auto;
+    overflow: hidden;
+}
+
+.cd-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.thumb {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.thumb-img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Control CSS */
+
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 1.2rem;
+}
+
+.btn {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: rgb(121, 113, 113);
+    transition: 0.25s;
+}
+
+.btn.active {
+    color: rgb(236, 15, 107);
+}
+
+.btn:hover {
+    color: rgb(236, 15, 107);
+}
+
+.btn-toggle-play {
+    background-color: rgb(236, 15, 107);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 2rem;
+    box-shadow: 0 0 0.5rem rgb(236, 15, 107);
+}
+
+.btn-sound i {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-sound.active i:first-child,
+.btn-sound.active i:nth-child(2) {
+    display: block;
+}
+
+.btn-sound.active i:nth-child(2) {
+    opacity: 0;
+}
+
+.btn-sound:not(.active) i:nth-child(3) {
+    display: block;
+}
+
+.btn-sound,
+.btn-add {
+    position: absolute;
+    top: 3.8rem;
+}
+
+.btn-sound {
+    left: 4rem;
+}
+
+#sound-level {
+    position: absolute;
+    top: 4.8rem;
+    left: -3.2rem;
+    transform: rotate(90deg);
+    width: 8rem;
+    display: none;
+    height: 2rem;
+}
+
+
+.btn-sound:hover #sound-level {
+    display: block;
+}
+
+.btn-add {
+    right: 4rem;
+}
+
+.progress {
+    width: 100%;
+    outline: none;
+    height: 0.5rem;
+}
+
+.progress:focus {
+    outline: none;
+}
+
+/* CSS Playlist */
+.playlist {
+    height: calc(var(--height-player) - var(--height-dashboard));
+    overflow-y: auto;
+}
+.playlist .song {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    margin: 1rem 0.5rem;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    height: 7rem;
+}
+
+.song:hover {
+    background-color: rgba(236, 15, 107, 0.2);
+    cursor: pointer;
+}
+
+.song.active {
+    background-color: rgb(236, 15, 107);
+    color: #fff;
+}
+
+.song.active .body .author, 
+.song.active .option {
+    color: #fff;
+}
+
+.thumb {
+    margin-right: 1.5rem;
+}
+
+.body {
+    flex: 1;
+}
+
+.body .title {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.body .author {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+}
+
+.option {
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 2rem;
+    color: rgba(0, 0, 0, 0.8);
+}
