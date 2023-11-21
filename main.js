@@ -37,7 +37,45 @@ const app = {
                         app.songs = data
                     })
     },              
-    songs: [],
+    songs: [
+        {
+            "name":"Cắt đôi nỗi sầu",
+            "singer":"Tăng Duy Tân ft DRUM7",
+            "path":"./assets/music/catdoinoisau.mp3",
+            "image":"./assets/image/catdoinoisau.jpg"
+        },
+        {
+            "name":"Bạn đời",
+            "singer":"Karik ft GDucky",
+            "path":"./assets/music/bandoi.mp3",
+            "image":"./assets/image/hq720.webp"
+        },
+        {
+            "name":"Bao tiền một mớ bình yên",
+            "singer":"14 Casper & Bon Nghiêm",
+            "path":"./assets/music/baotien1mobinhyen.mp3",
+            "image":"./assets/image/bt1mby.webp"
+        },
+        {
+            "name":"Until I found you",
+            "singer":"Stenphan Sanchez ft Em Beihold",
+            "path":"./assets/music/uify.mp3",
+            "image":"./assets/image/uify.webp"
+        },
+        {
+            "name":"Có chắc yên là đây",
+            "singer":"Sơn Tùng MTP",
+            "path":"./assets/music/ccyld.mp3",
+            "image":"./assets/image/ccyld.webp"
+        },
+        {
+            "name":"Tally",
+            "singer":"BLACKPINK",
+            "path":"./assets/music/tally.mp3",
+            "image":"./assets/image/tallyblink.webp"
+        }
+    ],
+    
     render: function() {
         const htmls = this.songs.map((song, index) => {
             return `
@@ -293,22 +331,21 @@ const app = {
         audio.setAttribute('src', currentSong.path)
     },
     start: function() {
-        app.getData()
         // load config
-        setTimeout(function() {
-            app.loadConfig()
-            // Define Properties for Object app
-            app.defineProperties()
+       
+        this.loadConfig()
+        // Define Properties for Object app
+        this.defineProperties()
 
-            // loading current song
-            app.loadCurrentSong()
+        // loading current song
+        this.loadCurrentSong()
 
-            // Action Listener
-            app.handleEvents()
+        // Action Listener
+        this.handleEvents()
 
-            // Render Playlist
-            app.render()
-        }, 1000)
+        // Render Playlist
+        this.render()
+        
     }
 }
 
